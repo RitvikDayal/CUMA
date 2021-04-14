@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'widget_tweaks',
+    'verify_email',
 ]
 
 MIDDLEWARE = [
@@ -114,3 +115,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
+
+# EMAIL and SMTP Configurations
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('USER_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('USER_EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = os.environ.get('USER_EMAIL')
