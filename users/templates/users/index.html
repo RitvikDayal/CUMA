@@ -1,0 +1,25 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+
+    <main class="page contact-page">
+        <section class="portfolio-block contact">
+            <div class="container">
+                <div class="heading">
+                    <h2 style="margin-bottom: 100px;">User Status</h2>
+                    {% if user.is_authenticated %}
+                    <div role="group" class="btn-group btn-group-lg">
+                        <a href="{% url 'logout' %}" class="btn btn-primary" type="button" style="margin-right: 3px;">Logout</a>
+                    </div>
+                    {% else %}
+                    <div role="group" class="btn-group btn-group-lg">
+                        <a href="{% url 'login' %}" class="btn btn-primary" type="button" style="margin-right: 3px;">SignIn</a>
+                        <a href="{% url 'register' %}" class="btn btn-primary" type="button" style="margin-right: 3px;">SignUp</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock content %}

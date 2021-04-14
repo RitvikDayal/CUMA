@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -99,8 +100,17 @@ AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Login Logout Redirects Configs
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'login'
